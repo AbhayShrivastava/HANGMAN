@@ -15,9 +15,9 @@ int main()
 //setup
 const int MAX_WRONG = 8; //maximum number of incorrect guesses allowed
 vector<string> words; //collection of possible words to guess
-words.push_back("GUESS");
-words.push_back("HANGMAN");
-words.push_back("DIFFICULT");
+words.push_back("TITANIC");
+words.push_back("BATMAN");
+words.push_back("SPIDERMAN");
 srand(static_cast<unsigned int>(time(0)));
 random_shuffle(words.begin(), words.end());
 const string THE_WORD = words[0]; //word to guess
@@ -34,7 +34,7 @@ while ((wrong < MAX_WRONG) && (soFar != THE_WORD))
 {
 cout << "\n\nYou have " << (MAX_WRONG - wrong);
 cout << " incorrect guesses left.\n";
-cout << "\nYou’ve used the following letters:\n" << used << endl;
+cout << "\nYouâ€™ve used the following letters:\n" << used << endl;
 cout << "\nSo far, the word is:\n" << soFar << endl;
 }
 
@@ -47,7 +47,7 @@ cin >> guess;
 guess = toupper(guess); //make uppercase since secret word in uppercase
 while (used.find(guess) != string::npos)
 {
-cout << "\nYou’ve already guessed " << guess << endl;
+cout << "\nYouâ€™ve already guessed " << guess << endl;
 cout << "Enter your guess: ";
 cin >> guess;
 guess = toupper(guess);
@@ -58,7 +58,7 @@ used += guess;
 
 if (THE_WORD.find(guess) != string::npos)
 {
-cout << "That’s right! " << guess << " is in the word.\n";
+cout << "Thatâ€™s right! " << guess << " is in the word.\n";
 //update soFar to include newly guessed letter
 for (int i = 0; i < THE_WORD.length(); ++i)
 {
@@ -70,7 +70,7 @@ soFar[i] = guess;
 }
 else
 {
-cout << "Sorry, " << guess << " isn’t in the word.\n";
+cout << "Sorry, " << guess << " isnâ€™t in the word.\n";
 ++wrong;
 }
 
@@ -79,7 +79,7 @@ cout << "Sorry, " << guess << " isn’t in the word.\n";
 //shut down
 if (wrong == MAX_WRONG)
 {
-cout << "\nYou’ve been hanged!";
+cout << "\nYouâ€™ve been hanged!";
 }
 else
 {
